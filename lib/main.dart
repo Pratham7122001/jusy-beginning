@@ -1,6 +1,8 @@
+import 'package:classic/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
+import 'pages/home_page.dart';
+
 
 void main() {
   runApp(Myapp()); //as Myapp doesnot exist so create  statelesswidget
@@ -9,28 +11,21 @@ void main() {
 class Myapp extends StatelessWidget {
   const Myapp({super.key});
 
-  @override
+  @override //kisine yeh pehle banaya hua hai,abb tum isme kuch kaam karo
   Widget build(BuildContext context) {
-    /*int days = 30;
-    String name = "Pratham777";
-    double pi = 3.14;
-    bool isMale = true;
-    num tempreature = 30.5; //num can take int or double
-
-    var day = "tuesday"; //  var can take string or number
-   // const pi = 3.14;//cannot change value of pi */
-
     return MaterialApp(
-      home: home_page(), //wrap with widget shortcut(ctrl + .)
-
-      /*    child: Center(              //wrap with center
-            child: Container(
-             
-              child: Text(
-                  "welcome to $days with $name $pi "), //string intercollation
-            ),
-          ),
-        ),*/
+      //home: home_page(),
+      themeMode: ThemeMode
+          .light, //if light ke jagah dark use karunga toh colors koi bhi dalo loi farak nhai padega
+      theme: ThemeData(primarySwatch: Colors.brown),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home",
+      routes: {
+        "/":(context)=>home_page(),//error aayega bcoz in line 15 pehl se hi home define kiya hai and again in this line /use kiya jiska meaning hi home ke route karna hai so eithe line 15 rakho ya line 22   
+       // "/":(context)=>login_page(),
+        "/login":(context)=>login_page(),
+      
+      },
     );
   }
 }
