@@ -1,10 +1,9 @@
 import 'package:classic/pages/login_page.dart';
+import 'package:classic/utilities/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 import 'pages/home_page.dart';
-
 
 void main() {
   runApp(Myapp()); //as Myapp doesnot exist so create  statelesswidget
@@ -20,17 +19,22 @@ class Myapp extends StatelessWidget {
       themeMode: ThemeMode
           .light, //if light ke jagah dark use karunga toh colors koi bhi dalo loi farak nahi padega
       theme: ThemeData(
-        primarySwatch: Colors.brown,
-        fontFamily: GoogleFonts.lato().fontFamily,//lato doge toh niche latotexttheme hi deni padegi
-        primaryTextTheme: GoogleFonts.latoTextTheme() //isse kuch jyada changes nahi aare so use fontfamily
-        ),
+          primarySwatch: Colors.brown,
+          fontFamily: GoogleFonts.lato()
+              .fontFamily, //lato doge toh niche latotexttheme hi deni padegi
+          primaryTextTheme: GoogleFonts
+              .latoTextTheme() //isse kuch jyada changes nahi aare so use fontfamily
+          ),
+          debugShowCheckedModeBanner: false,//to remove debug wala print in the corner
       darkTheme: ThemeData(brightness: Brightness.dark),
-      //initialRoute: "/home",
+      initialRoute: "/",
       routes: {
-        "/":(context)=>home_page(),//error aayega bcoz in line 15 pehl se hi home define kiya hai and again in this line / use kiya jiska meaning hi home ke route karna hai so either line 15 rakho ya line 22   
-        "/":(context)=>login_page(),
-        "/login":(context)=>login_page(),
-      
+        "/": (context) => login_page(),
+        MyRoutes.loginRoute: (context) => login_page(),
+        MyRoutes.homeRoute: (context) =>
+            home_page(), //error aayega bcoz in line 20 pehl se hi home define kiya hai and again in this line / use kiya jiska meaning hi home ke route karna hai so either line 15 rakho ya line 22
+        //MyRoutes.loginRoute:(context)=>login_page(),
+        //login se home page jayega jab login pe cick karega 
       },
     );
   }
