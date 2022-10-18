@@ -1,3 +1,4 @@
+import 'package:classic/widgets/drawer.dart';
 import 'package:flutter/material.dart'; //material library ke wajah se jo bhi ui dikh raha hai jaise poshakh center me hai and bar ka color blue hai tjis is all bcoz materila library
 
 class home_page extends StatelessWidget {
@@ -20,7 +21,8 @@ class home_page extends StatelessWidget {
           child: Text("welcome to $days with $name "), //string intercollation
         ),
       ),
-      drawer: Drawer(), //corner me three lines
+      // ignore: prefer_const_constructors
+      drawer: MyDrawer(), //corner me three lines
     );
   }
 }

@@ -27,12 +27,11 @@ class Myapp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,//to remove debug wala print in the corner
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/",
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => login_page(),
         MyRoutes.loginRoute: (context) => login_page(),
-        MyRoutes.homeRoute: (context) =>
-            home_page(), //error aayega bcoz in line 20 pehl se hi home define kiya hai and again in this line / use kiya jiska meaning hi home ke route karna hai so either line 15 rakho ya line 22
+        MyRoutes.homeRoute: (context) =>home_page(), //error aayega bcoz in line 20 pehl se hi home define kiya hai and again in this line / use kiya jiska meaning hi home ke route karna hai so either line 15 rakho ya line 22
         //MyRoutes.loginRoute:(context)=>login_page(),
         //login se home page jayega jab login pe cick karega 
       },
