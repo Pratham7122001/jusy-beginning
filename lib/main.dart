@@ -20,8 +20,10 @@ class Myapp extends StatelessWidget {
           .light, //if light ke jagah dark use karunga toh colors koi bhi dalo loi farak nahi padega
       theme: ThemeData(
           primarySwatch: Colors.brown,
-          fontFamily: GoogleFonts.lato()
-              .fontFamily, //lato doge toh niche latotexttheme hi deni padegi
+          fontFamily: GoogleFonts.lato().fontFamily, //lato doge toh niche latotexttheme hi deni padegi
+          
+          
+          
           primaryTextTheme: GoogleFonts
               .latoTextTheme() //isse kuch jyada changes nahi aare so use fontfamily
           ),

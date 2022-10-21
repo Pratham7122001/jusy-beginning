@@ -25,13 +25,17 @@ class MyDrawer extends StatelessWidget {
             currentAccountPicture:Image.asset("assets/images/WhatsApp Image 2022-09-09 at 9.54.55 PM.png"),
             )
             ),
+              // ignore: prefer_const_constructors
               ListTile(
+                 // ignore: prefer_const_constructors
                  leading: Icon(
                 CupertinoIcons.home,
                 color:Colors.white),
                  title:
+                 // ignore: prefer_const_constructors
                  Text("Home",
                  textScaleFactor: 1.2,
+                 // ignore: prefer_const_constructors
                  style:TextStyle(
                   color:Colors.white)),
              ),
@@ -45,7 +49,9 @@ class MyDrawer extends StatelessWidget {
                  style:TextStyle(
                   color:Colors.white)),
              ),
+            // ignore: prefer_const_constructors
             ListTile(
+                 // ignore: prefer_const_constructors
                  leading: Icon(
                 CupertinoIcons.mail,
                 color:Colors.white),
