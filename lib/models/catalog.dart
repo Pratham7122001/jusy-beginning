@@ -1,13 +1,17 @@
+
+
+
 class CatalogModel {
-   static final items = [
+  static  List<Item> items=
+   [
     Item(
-      id: 1,
-      name: "Tshirt",
-      desc: "XYZ",
-      price: 123,
-      color: "black",
-      image:"https://th.bing.com/th/id/OIP._z6GvfuYgmgAYM7y41bp4wHaKu?pid=ImgDet&rs=1"
-             ),
+        id: 1,
+        name: "Tshirt",
+        desc: "XYZ",
+        price: 123,
+        color: "black",
+        image:
+            "https://th.bing.com/th/id/OIP._z6GvfuYgmgAYM7y41bp4wHaKu?pid=ImgDet&rs=1"),
   ];
 }
 
@@ -20,10 +24,29 @@ class Item {
   final String image;
 
   Item(
-      {required this.id,
-      required this.name,
-      required this.desc,
-      required this.price,
-      required this.color,
-      required this.image});
+      {  required this.id,
+    required this.name,
+    required this.desc,
+    required this.price,
+    required this.color,
+    required this.image});
+
+  factory Item.fromJson(Map<String, dynamic> map) {
+    return Item(
+        id: map["id"],
+        name: map["name"],
+        desc: map["desc"],
+        price: map["price"],
+        color: map["color"],
+        image: map["image"]);
+  }
+
+  tomap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "image": image,
+      };
 }
