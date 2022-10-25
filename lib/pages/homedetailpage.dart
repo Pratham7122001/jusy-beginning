@@ -8,11 +8,13 @@ class homedetailpage extends StatelessWidget {
 
   const homedetailpage({required key, required this.catalog})
       : assert(catalog != null); 
-  //super(key: key);
+       //super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
+       appBar: AppBar(),
       bottomNavigationBar: ButtonBar(
          buttonPadding: Vx.mOnly(right: 13), //right se padding
                   alignment: MainAxisAlignment.spaceBetween,

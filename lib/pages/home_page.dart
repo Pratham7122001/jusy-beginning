@@ -1,8 +1,10 @@
 import 'package:classic/models/catalog.dart';
 import 'package:classic/pages/homedetailpage.dart';
+import 'package:classic/utilities/routes.dart';
 import 'package:classic/widgets/drawer.dart';
 import 'package:classic/widgets/item_widget.dart';
 import 'package:classic/widgets/themes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; //material library ke wajah se jo bhi ui dikh raha hai jaise poshakh center me hai and bar ka color blue hai tjis is all bcoz materila library
 import 'dart:convert';
@@ -46,6 +48,10 @@ class _home_pageState extends State<home_page> {
     //widget is a component
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartroute),
+          child: Icon(CupertinoIcons.cart),
+          backgroundColor: Colors.blueGrey),
       //replace material with scaffold-->>is a widget where their will be head,foot body for interface
       /*   appBar: AppBar(
         //blue color ka bar in the top
@@ -124,21 +130,19 @@ class CatalogList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      shrinkWrap: true,
-      itemCount: CatalogModel.items.length,
-      itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
-        return InkWell(
-            onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      homedetailpage(key: key, catalog: catalog),
-                )),
-            child: CatalogItem(key: key, catalog: catalog)
-            );
-      }
-    );
+        shrinkWrap: true,
+        itemCount: CatalogModel.items.length,
+        itemBuilder: (context, index) {
+          final catalog = CatalogModel.items[index];
+          return InkWell(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        homedetailpage(key: key, catalog: catalog),
+                  )),
+              child: CatalogItem(key: key, catalog: catalog));
+        });
   }
 }
 
@@ -170,7 +174,8 @@ class CatalogItem extends StatelessWidget {
                     ElevatedButton(
                       //style: ,bhi use kar sakte
                       onPressed: () {},
-                      child: "Buy".text.make(),
+                      //child: "add to cart".text.make(),
+                      child: Icon(CupertinoIcons.cart_badge_plus),
                     )
                   ],
                 ),

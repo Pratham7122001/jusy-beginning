@@ -1,3 +1,4 @@
+import 'package:classic/pages/cartpage.dart';
 import 'package:classic/pages/login_page.dart';
 import 'package:classic/utilities/routes.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,7 @@ class Myapp extends StatelessWidget {
         "/": (context) => login_page(),
         MyRoutes.loginRoute: (context) => login_page(),
         MyRoutes.homeRoute: (context) =>home_page(), //error aayega bcoz in line 20 pehl se hi home define kiya hai and again in this line / use kiya jiska meaning hi home ke route karna hai so either line 15 rakho ya line 22
+        MyRoutes.cartroute: (context) =>cartpage(), //error aayega bcoz in line 20 pehl se hi home define kiya hai and again in this line / use kiya jiska meaning hi home ke route karna hai so either line 15 rakho ya line 22
         //MyRoutes.loginRoute:(context)=>login_page(),
         //login se home page jayega jab login pe cick karega 
       },
