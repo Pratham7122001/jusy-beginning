@@ -1,4 +1,5 @@
 import 'package:classic/models/catalog.dart';
+import 'package:classic/pages/homedetailpage.dart';
 import 'package:classic/widgets/drawer.dart';
 import 'package:classic/widgets/item_widget.dart';
 import 'package:classic/widgets/themes.dart';
@@ -127,8 +128,16 @@ class CatalogList extends StatelessWidget {
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
         final catalog = CatalogModel.items[index];
-        return CatalogItem(key: key, catalog: catalog);
-      },
+        return InkWell(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      homedetailpage(key: key, catalog: catalog),
+                )),
+            child: CatalogItem(key: key, catalog: catalog)
+            );
+      }
     );
   }
 }
@@ -146,52 +155,45 @@ class CatalogItem extends StatelessWidget {
         children: [
           Image.network(catalog.image).box.p12.make().w32(context),
           Expanded(
-              key: key,
-              child: Column(
-                  
-                  crossAxisAlignment: CrossAxisAlignment.start,
+            key: key,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                catalog.name.text.extraBold.make().p12(),
+                catalog.desc.text.xs.italic.semiBold.make().p0(),
+                // 10.heightBox, height se inche lene ke liye for button
+                ButtonBar(
+                  buttonPadding: Vx.mOnly(right: 13), //right se padding
+                  alignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     catalog.name.text.extraBold.make().p12(),
-                     catalog.desc.text.xs.italic.semiBold.make().p0(),
-                    // 10.heightBox, height se inche lene ke liye for button
-                    ButtonBar(
-                      buttonPadding: Vx.mOnly(right: 13),//right se padding
-                      alignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        "\$${catalog.price}".text.bold.make(),
-                        ElevatedButton(
-                          //style: ,bhi use kar sakte
-                          onPressed: () {},
-                          child: "Buy".text.make(),
-                        )
-                      ],
-                    ),
-
-                    //catalog.name.text.bold.make().p12(),
-                    // catalog.desc.text.make().p12(),
-                    //"\$${catalog.price}".text.bold.make().w20(context),
-                    // ButtonBar(
-                    //  alignment:MainAxisAlignment.,
-                    //  children: [
-                    //    "\$${catalog.price}".text.bold.make(),
-                    //      ElevatedButton(
-                    //       onPressed:(){},
-                    //       child: "Buy".text.make(),)
-
-                    //   ],
-                    // )
+                    "\$${catalog.price}".text.bold.make(),
+                    ElevatedButton(
+                      //style: ,bhi use kar sakte
+                      onPressed: () {},
+                      child: "Buy".text.make(),
+                    )
                   ],
                 ),
-              )
+
+                //catalog.name.text.bold.make().p12(),
+                // catalog.desc.text.make().p12(),
+                //"\$${catalog.price}".text.bold.make().w20(context),
+                // ButtonBar(
+                //  alignment:MainAxisAlignment.,
+                //  children: [
+                //    "\$${catalog.price}".text.bold.make(),
+                //      ElevatedButton(
+                //       onPressed:(){},
+                //       child: "Buy".text.make(),)
+
+                //   ],
+                // )
+              ],
+            ),
+          )
         ],
       ),
-    )
-        .color(Color.fromARGB(48, 62, 30, 104))
-        .rounded
-        .square(130)
-        
-        .make()
-        .py12();
+    ).color(Color.fromARGB(48, 62, 30, 104)).rounded.square(130).make().py12();
 
     //container and vxbox is same
   }
